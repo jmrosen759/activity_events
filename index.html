@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Using jQuery Selectors and Events</title>
+
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<style>
+
+body{
+font-family:Arial, sans-serif;
+margin:30px;
+}
+
+button{
+padding:10px;
+margin-top:10px;
+}
+
+.box{
+width:200px;
+height:120px;
+background:lightblue;
+margin-top:15px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.redText{
+color:red;
+font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Using jQuery Selectors and Events</h1>
+
+<button id="btn1">click this button</button>
+
+<p id="para1">this paragraph will change color when the button is clicked</p>
+
+<div class="box">hover over this box</div>
+
+<p id="hideMe">double click this text and it disappears</p>
+
+<h2>Selectors I used</h2>
+
+<dl>
+
+<dt>#btn1</dt>
+<dd>This selector uses an id to target the button. When the button is clicked it runs the event attached to it.</dd>
+
+<dt>#para1</dt>
+<dd>This id selector targets the paragraph so the style can change when the button is pressed.</dd>
+
+<dt>.box</dt>
+<dd>This is a class selector. I used it to detect when the mouse hovers over the box.</dd>
+
+<dt>#hideMe</dt>
+<dd>This selector targets the last paragraph. When it gets double clicked the element hides.</dd>
+
+</dl>
+
+<script>
+
+// click event
+$("#btn1").click(function(){
+$("#para1").toggleClass("redText")
+})
+
+// hover event
+$(".box").hover(function(){
+$(this).css("background","orange")
+},function(){
+$(this).css("background","lightblue")
+})
+
+// double click event
+$("#hideMe").dblclick(function(){
+$(this).hide()
+})
+
+</script>
+
+</body>
+</html>
